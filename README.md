@@ -1,4 +1,4 @@
-# POIFD
+# fdaPOIFD
 
 <!-- badges: start -->
 
