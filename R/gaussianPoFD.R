@@ -10,12 +10,12 @@
 #' Large values of this parameter requires a large parameter p to guarantee the observability level.
 #'
 #' @return a list containing two elements 1) a functional sample and 2) the same sample of functions but
-#' partially observed following one of the schemes descrived in the argument type.
+#' partially observed following one of the schemes described in the argument type.
 #'
 #' @importFrom MASS mvrnorm
 #' @importFrom FastGP rcpp_rmvnorm
 #'
-#' @references Elías, Antonio, Jiménez, Raúl, Paganoni, Anna M. and Sangalli, Laura M. (2020). Integrated Depths for Partially ObservedFunctional Data.
+#' @references Elías, Antonio, Jiménez, Raúl, Paganoni, Anna M. and Sangalli, Laura M. (2020). Integrated Depths for Partially Observed Functional Data.
 #' @examples
 #' gaussian_pofd <- gaussian_PoFD(n=100, p=200, type="sparse", observability=0.5)
 #'

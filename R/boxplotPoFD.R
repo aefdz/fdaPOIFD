@@ -1,13 +1,13 @@
 #' Functional Boxplot for Partially Observed Functional Data
 #'
-#' Plots the Functional Boxplot for PoFD and returns the magnitud and domain outliers.
+#' Plots the Functional Boxplot for PoFD and returns the magnitude and domain outliers.
 #' Magnitude outliers in blue, a dotted red indicates that the outlier situation occurs
 #' in a region with less than \code{fdom} proportion of the central region.
 #'
 #' @param data matrix p by n, being n the number of functions and p the number of grid points.
 #' @param centralRegion number between 0 and 1 determining the proportion of the deepest functions that builds the central region.
 #' @param fmag factor to enhance the functional central region and
-#'  determine the functional whiskers. Default is equal to 1.5. The whiskers provide the rule to unmask magnitud outliers.
+#'  determine the functional whiskers. Default is equal to 1.5. The whiskers provide the rule to unmask magnitude outliers.
 #' @param fdom factor that provides the minimum proportion of functions in the available central region to consider a magnitude outlier
 #' as a domain outlier. A value equals to 0 determine as domain outlier a magnitude outlier if the central region is
 #' not available at all. A value equals to 1 determine as domain outlier any magnitude outlier out of the region where the central region

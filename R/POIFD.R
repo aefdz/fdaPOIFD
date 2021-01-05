@@ -3,8 +3,8 @@
 #' Compute the depth measures of a partially observed functional data set evaluated in a common grid.
 #'
 #' @param data matrix p by n, being n the number of functions and p the number of grid points.
-#' Rownames are the dense grid x and colnames the identificator of each functional data.
-#' @param type choosen depth measure. Fraiman and Muniz depth (\code{"FMD"}), Modified band depth (\code{"MBD"})
+#' Rownames are the dense grid x and colnames the identifier of each functional data.
+#' @param type chosen depth measure. Fraiman and Muniz depth (\code{"FMD"}), Modified band depth (\code{"MBD"})
 #' or Modified Half Region Depth and Modified Epigraph/Hipograph Index \code{"MHRD"})
 #' @param phi phi function of weights for the POIFD. The default value is as in the paper, i.e. the proportion of observed functions
 #' at each time point.

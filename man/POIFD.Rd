@@ -8,9 +8,9 @@ POIFD(data, type = c("MBD", "FMD", "MHRD"), phi)
 }
 \arguments{
 \item{data}{matrix p by n, being n the number of functions and p the number of grid points.
-Rownames are the dense grid x and colnames the identificator of each functional data.}
+Rownames are the dense grid x and colnames the identifier of each functional data.}
 
-\item{type}{choosen depth measure. Fraiman and Muniz depth (\code{"FMD"}), Modified band depth (\code{"MBD"})
+\item{type}{chosen depth measure. Fraiman and Muniz depth (\code{"FMD"}), Modified band depth (\code{"MBD"})
 or Modified Half Region Depth and Modified Epigraph/Hipograph Index \code{"MHRD"})}
 
 \item{phi}{phi function of weights for the POIFD. The default value is as in the paper, i.e. the proportion of observed functions

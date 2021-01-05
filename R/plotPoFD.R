@@ -4,7 +4,7 @@
 #'
 #' @param data matrix p by n, being n the number of functions and p the number of grid points.
 
-#' @return Plot of the partially observed functinal data and the proportion of observed functions
+#' @return Plot of the partially observed functional data and the proportion of observed functions
 #' at each time point.
 #'
 #' @examples

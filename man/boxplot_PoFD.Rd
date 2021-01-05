@@ -12,7 +12,7 @@ boxplot_PoFD(data, centralRegion = 0.5, fmag = 1.5, fdom = 1)
 \item{centralRegion}{number between 0 and 1 determining the proportion of the deepest functions that builds the central region.}
 
 \item{fmag}{factor to enhance the functional central region and
-determine the functional whiskers. Default is equal to 1.5. The whiskers provide the rule to unmask magnitud outliers.}
+determine the functional whiskers. Default is equal to 1.5. The whiskers provide the rule to unmask magnitude outliers.}
 
 \item{fdom}{factor that provides the minimum proportion of functions in the available central region to consider a magnitude outlier
 as a domain outlier. A value equals to 0 determine as domain outlier a magnitude outlier if the central region is
@@ -23,7 +23,7 @@ is completely observed.}
 a list with the functional boxplot for PoDF, the magnitude outliers and the domain outliers.
 }
 \description{
-Plots the Functional Boxplot for PoFD and returns the magnitud and domain outliers.
+Plots the Functional Boxplot for PoFD and returns the magnitude and domain outliers.
 Magnitude outliers in blue, a dotted red indicates that the outlier situation occurs
 in a region with less than \code{fdom} proportion of the central region.
 }

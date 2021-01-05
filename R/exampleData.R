@@ -10,7 +10,7 @@
 #' \item{PoFDextremes_outliers}{Same as above but including two magnitude and shape outliers}
 #' }
 #'
-#' @references Elías, Antonio, Jiménez, Raúl, Paganoni, Anna M. and Sangalli, Laura M. (2020). Integrated Depths for Partially ObservedFunctional Data.
+#' @references Elías, Antonio, Jiménez, Raúl, Paganoni, Anna M. and Sangalli, Laura M. (2020). Integrated Depths for Partially Observed Functional Data.
 #'
 #' @examples
 #' data(exampleData)

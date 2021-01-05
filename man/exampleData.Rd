@@ -25,6 +25,6 @@ plot_PoFD(exampleData$PoFDintervals)
 
 }
 \references{
-Elías, Antonio, Jiménez, Raúl, Paganoni, Anna M. and Sangalli, Laura M. (2020). Integrated Depths for Partially ObservedFunctional Data.
+Elías, Antonio, Jiménez, Raúl, Paganoni, Anna M. and Sangalli, Laura M. (2020). Integrated Depths for Partially Observed Functional Data.
 }
 \keyword{datasets}

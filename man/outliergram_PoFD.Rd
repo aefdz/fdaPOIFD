@@ -26,5 +26,5 @@ Plots the Outliergram for PoFD and returns the shape outliers.
 
 }
 \references{
-Arribas-Gil, A. and Romo, J. (2014).  Shape outlier detection and visualization for func-tional data:  the outliergram.Biostatistics, 15(4):603–619.
+Arribas-Gil, A. and Romo, J. (2014).  Shape outlier detection and visualization for functional data:  the outliergram.Biostatistics, 15(4):603–619.
 }

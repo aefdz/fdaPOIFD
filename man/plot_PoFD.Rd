@@ -10,7 +10,7 @@ plot_PoFD(data)
 \item{data}{matrix p by n, being n the number of functions and p the number of grid points.}
 }
 \value{
-Plot of the partially observed functinal data and the proportion of observed functions
+Plot of the partially observed functional data and the proportion of observed functions
 at each time point.
 }
 \description{

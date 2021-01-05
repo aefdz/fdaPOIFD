@@ -8,7 +8,7 @@
 ## Overview
 
 Software companion for the paper “Integrated Depth for Partially
-Observed Functiona Data” (Elías, Antonio, Jiménez, Raúl, Paganoni, Anna
+Observed Functional Data” (Elías, Antonio, Jiménez, Raúl, Paganoni, Anna
 M. and Sangalli, Laura M., 2020).
 
 It implements the proposed depth measures, functional boxplot and
@@ -73,7 +73,7 @@ mbd <- POIFD(common_gaussian$pofd, type = "MBD")
 
   - Fraiman, R. and Muniz, G. (2001). Trimmed means for functional data.
     *Test*, 10(2):419–440.
-  - Ĺopez-Pintado, S. and Romo, J. (2009). On the concept of depth for
+  - López-Pintado, S. and Romo, J. (2009). On the concept of depth for
     functional data. *Journal of the American Statistical Association*,
     104(486):718–734.
   - López-Pintado, S. and Romo, J. (2011). A half-region depth for
@@ -140,5 +140,5 @@ outliergram$outliergram
 ## References
 
 Elías, Antonio, Jiménez, Raúl, Paganoni, Anna M. and Sangalli, Laura M.
-(2020). Integrated Depths for Partially ObservedFunctional Data.
+(2020). Integrated Depths for Partially Observed Functional Data.
 (submitted)
