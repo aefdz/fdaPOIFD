@@ -51,7 +51,7 @@ plot_PoFD <- function(data){
     ggplot2::geom_line(data = w_dataFrame, mapping = aes(x = .data$X2, y = .data$X1), col= 'black') +
     ggplot2::scale_fill_gradient(low = "white", high = "black", limits = c(0, 1), aesthetics = c("color", "fill")) +
     ggplot2::labs(y=expression('q'[n]), x= "") +
-    ggplot2::scale_y_continuous(expand = expansion(mult = c(0, 0)), breaks = c(0, 0.5, 1) , labels=c("0", "0.5", "1"))+
+    ggplot2::scale_y_continuous(expand = ggplot2::expansion(mult = c(0, 0)), breaks = c(0, 0.5, 1) , labels=c("0", "0.5", "1"))+
     ggplot2::theme(legend.position = "none",
                           legend.title = element_blank(),
                           panel.background = element_blank(),
