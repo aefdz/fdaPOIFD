@@ -18,7 +18,7 @@ functional outliergram for partially observed functional data.
 
 ``` r
 #install the package
-devtools::install_github("aefdz/POIFD")
+devtools::install_github("aefdz/fdaPOIFD")
 
 #load the package
 library(POIFD)
