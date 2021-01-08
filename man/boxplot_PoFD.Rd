@@ -4,7 +4,7 @@
 \alias{boxplot_PoFD}
 \title{Functional Boxplot for Partially Observed Functional Data}
 \usage{
-boxplot_PoFD(data, centralRegion = 0.5, fmag = 1.5, fdom = 1)
+boxplot_PoFD(data, centralRegion = 0.5, fmag = 1.5, fdom = 0)
 }
 \arguments{
 \item{data}{matrix p by n, being n the number of functions and p the number of grid points.}
@@ -14,9 +14,10 @@ boxplot_PoFD(data, centralRegion = 0.5, fmag = 1.5, fdom = 1)
 \item{fmag}{factor to enhance the functional central region and
 determine the functional whiskers. Default is equal to 1.5. The whiskers provide the rule to unmask magnitude outliers.}
 
-\item{fdom}{factor that provides the minimum proportion of functions in the available central region to consider a magnitude outlier
-as a domain outlier. A value equals to 0 determine as domain outlier a magnitude outlier if the central region is
-not available at all. A value equals to 1 determine as domain outlier any magnitude outlier out of the region where the central region
+\item{fdom}{factor that provides the maximum proportion of observed functions in the central region to consider a magnitude outlier
+as a domain outlier also. A value equals to 0 means that domain outliers are those functions that are observed
+on the domain where any of the functions building the central region are observed.
+A value equals to 1 determine as domain outlier any magnitude outlier out of the region where the central region
 is completely observed.}
 }
 \value{
@@ -29,7 +30,7 @@ in a region with less than \code{fdom} proportion of the central region.
 }
 \examples{
 data(exampleData)
-boxplot_PoFD(exampleData$PoFDextremes_outliers, centralRegion = 0.5, fmag = 1.5, fdom = 0.1)
+boxplot_PoFD(exampleData$PoFDextremes_outliers, centralRegion = 0.5, fmag = 1.5, fdom = 0)
 
 }
 \references{

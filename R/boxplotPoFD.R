@@ -8,15 +8,16 @@
 #' @param centralRegion number between 0 and 1 determining the proportion of the deepest functions that builds the central region.
 #' @param fmag factor to enhance the functional central region and
 #'  determine the functional whiskers. Default is equal to 1.5. The whiskers provide the rule to unmask magnitude outliers.
-#' @param fdom factor that provides the minimum proportion of functions in the available central region to consider a magnitude outlier
-#' as a domain outlier. A value equals to 0 determine as domain outlier a magnitude outlier if the central region is
-#' not available at all. A value equals to 1 determine as domain outlier any magnitude outlier out of the region where the central region
+#' @param fdom factor that provides the maximum proportion of observed functions in the central region to consider a magnitude outlier
+#' as a domain outlier also. A value equals to 0 means that domain outliers are those functions that are observed
+#' on the domain where any of the functions building the central region are observed.
+#' A value equals to 1 determine as domain outlier any magnitude outlier out of the region where the central region
 #' is completely observed.
 #' @return a list with the functional boxplot for PoDF the magnitude outliers and the domain outliers.
 #'
 #' @examples
 #' data(exampleData)
-#' boxplot_PoFD(exampleData$PoFDextremes_outliers, centralRegion = 0.5, fmag = 1.5, fdom = 0.1)
+#' boxplot_PoFD(exampleData$PoFDextremes_outliers, centralRegion = 0.5, fmag = 1.5, fdom = 0)
 #'
 #' @references Sun, Y. and Genton, M. G. (2011). Functional boxplots. Journal of Computational & Graphical Statistics, 20(2):316–334.
 #' @import ggplot2
@@ -25,7 +26,7 @@
 #' @importFrom stats ecdf fivenum median quantile
 #'
 #' @export
-boxplot_PoFD <- function(data, centralRegion = 0.5, fmag = 1.5, fdom = 1)
+boxplot_PoFD <- function(data, centralRegion = 0.5, fmag = 1.5, fdom = 0)
 {
   N <- dim(data)[2]
   P <- dim(data)[1]
