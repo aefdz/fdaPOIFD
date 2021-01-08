@@ -22,7 +22,8 @@ a list with the functional outliergram for PoDF and the shape outliers.
 Plots the Outliergram for PoFD and returns the shape outliers.
 }
 \examples{
-#outliergram_PoFD(data, fshape = 1.5, p1 = 1, p2 = 0)
+data(exampleData)
+outliergram_PoFD(exampleData$PoFDextremes_outliers, fshape = 1.5, p1 = 1, p2 = 0)
 
 }
 \references{

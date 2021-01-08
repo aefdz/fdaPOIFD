@@ -20,7 +20,7 @@ not available at all. A value equals to 1 determine as domain outlier any magnit
 is completely observed.}
 }
 \value{
-a list with the functional boxplot for PoDF, the magnitude outliers and the domain outliers.
+a list with the functional boxplot for PoDF the magnitude outliers and the domain outliers.
 }
 \description{
 Plots the Functional Boxplot for PoFD and returns the magnitude and domain outliers.
@@ -28,7 +28,8 @@ Magnitude outliers in blue, a dotted red indicates that the outlier situation oc
 in a region with less than \code{fdom} proportion of the central region.
 }
 \examples{
-# boxplot_PoFD(data, centralRegion = 0.5, fmag = 1.5, fdom = 1)
+data(exampleData)
+boxplot_PoFD(exampleData$PoFDextremes_outliers, centralRegion = 0.5, fmag = 1.5, fdom = 0.1)
 
 }
 \references{

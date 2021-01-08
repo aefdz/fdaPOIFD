@@ -26,6 +26,7 @@ partially observed following one of the schemes described in the argument type.
 Generates samples of partially observed gaussian functions following different censoring regimes.
 }
 \examples{
+
 gaussian_pofd <- gaussian_PoFD(n=100, p=200, type="sparse", observability=0.5)
 
 }

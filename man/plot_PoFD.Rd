@@ -17,6 +17,7 @@ at each time point.
 Plot the sample of partially observed curves and the proportion of observed functions.
 }
 \examples{
-#plot_PoFD(data)
+data(exampleData)
+plot_PoFD(exampleData$PoFDextremes)
 
 }

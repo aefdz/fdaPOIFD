@@ -17,6 +17,7 @@
 #'
 #' @references Elías, Antonio, Jiménez, Raúl, Paganoni, Anna M. and Sangalli, Laura M. (2020). Integrated Depths for Partially Observed Functional Data.
 #' @examples
+#'
 #' gaussian_pofd <- gaussian_PoFD(n=100, p=200, type="sparse", observability=0.5)
 #'
 #' @export

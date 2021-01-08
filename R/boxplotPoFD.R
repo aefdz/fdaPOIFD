@@ -12,10 +12,11 @@
 #' as a domain outlier. A value equals to 0 determine as domain outlier a magnitude outlier if the central region is
 #' not available at all. A value equals to 1 determine as domain outlier any magnitude outlier out of the region where the central region
 #' is completely observed.
-#' @return a list with the functional boxplot for PoDF, the magnitude outliers and the domain outliers.
+#' @return a list with the functional boxplot for PoDF the magnitude outliers and the domain outliers.
 #'
 #' @examples
-#' # boxplot_PoFD(data, centralRegion = 0.5, fmag = 1.5, fdom = 1)
+#' data(exampleData)
+#' boxplot_PoFD(exampleData$PoFDextremes_outliers, centralRegion = 0.5, fmag = 1.5, fdom = 0.1)
 #'
 #' @references Sun, Y. and Genton, M. G. (2011). Functional boxplots. Journal of Computational & Graphical Statistics, 20(2):316–334.
 #' @import ggplot2

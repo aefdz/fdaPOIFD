@@ -8,7 +8,8 @@
 #' at each time point.
 #'
 #' @examples
-#' #plot_PoFD(data)
+#' data(exampleData)
+#' plot_PoFD(exampleData$PoFDextremes)
 #'
 #' @import ggplot2
 #' @import tibble
