@@ -1,0 +1,76 @@
+---
+title: "Illustration of the simulations"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Illustration of the simulations}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Load packages
+```{r}
+library("fdaPOIFD")
+library("refund")
+```
+
+## Generate data
+
+```{r}
+N <- 100
+P <- 200
+dataPOFD <- gaussian_PoFD(n=N, p=P, type="common", observability=0.5)
+```
+
+## Depth computations
+
+### Depth with complete data
+```{r}
+depth_complete <- POIFD(dataPOFD$fd, type = "MBD")
+```
+
+### POIFD 
+```{r}
+depth_POIFD <- POIFD(dataPOFD$pofd, type = "MBD")
+```
+
+### Depth with reconstructed curves
+
+```{r}
+Fit.IV <- ccb.fpc(t(dataPOFD$pofd), n.boot = 10, sim.alpha = 0.9, simul = TRUE)
+goldsmith_reconstruction <- t(Fit.IV$Yhat)
+
+depth_goldsmith <- POIFD(goldsmith_reconstruction, type = "MBD")
+```
+
+### Depth Sguera and Lopez-Pintado
+
+```{r}
+upperband <- t(Fit.IV$Yhat + Fit.IV$crit.val * sqrt(Fit.IV$diag.var))
+lowerband <- t(Fit.IV$Yhat - Fit.IV$crit.val * sqrt(Fit.IV$diag.var))
+colnames(upperband) <- colnames(lowerband) <- 1:N
+
+colnames(goldsmith_reconstruction) <- 1:dim(goldsmith_reconstruction)[2]
+depth_upper_reconstruction_alpha_mbd <- POIFD(upperband, type = "MBD")[colnames(upperband)]
+depth_lower_reconstruction_alpha_mbd <- POIFD(lowerband, type = "MBD")[colnames(lowerband)]
+
+depth_sguera_alpha_mbd <- rowMeans(cbind(depth_goldsmith,
+                                         depth_upper_reconstruction_alpha_mbd,
+                                         depth_lower_reconstruction_alpha_mbd))
+```
+
+
+## Agreement
+```{r}
+cor(depth_complete[as.character(1:N)],
+    depth_POIFD[as.character(1:N)])
+
+cor(depth_complete[as.character(1:N)],
+    depth_goldsmith[as.character(1:N)])
+
+cor(depth_complete[as.character(1:N)],
+    depth_sguera_alpha_mbd[as.character(1:N)])
+```
