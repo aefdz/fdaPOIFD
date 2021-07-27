@@ -4,7 +4,7 @@
 \alias{gaussian_PoFD}
 \title{Gaussian Partially Observed Functional Data}
 \usage{
-gaussian_PoFD(n, p, type, observability, ninterval)
+gaussian_PoFD(n, p, type, observability, ninterval, pIncomplete = 1)
 }
 \arguments{
 \item{n}{total number of functional observations}
@@ -17,6 +17,9 @@ gaussian_PoFD(n, p, type, observability, ninterval)
 
 \item{ninterval}{if type = "interval", n_interval is an integer with the number of observed intervals 1, 2, 3...
 Large values of this parameter requires a large parameter p to guarantee the observability level.}
+
+\item{pIncomplete}{number between 0 and 1 related to the proportion of curves that suffers partially observability.
+The default is 1 meaning that all the sample curves are partially observed.}
 }
 \value{
 a list containing two elements 1) a functional sample and 2) the same sample of functions but

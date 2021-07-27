@@ -8,7 +8,8 @@
 #' @param observability mean observed proportion of the domain where each function is observed.
 #' @param ninterval if type = "interval", n_interval is an integer with the number of observed intervals 1, 2, 3...
 #' Large values of this parameter requires a large parameter p to guarantee the observability level.
-#'
+#' @param pIncomplete number between 0 and 1 related to the proportion of curves that suffers partially observability.
+#' The default is 1 meaning that all the sample curves are partially observed.
 #' @return a list containing two elements 1) a functional sample and 2) the same sample of functions but
 #' partially observed following one of the schemes described in the argument type.
 #'
@@ -21,7 +22,7 @@
 #' gaussian_pofd <- gaussian_PoFD(n=100, p=200, type="sparse", observability=0.5)
 #'
 #' @export
-gaussian_PoFD <- function(n, p, type, observability, ninterval){
+gaussian_PoFD <- function(n, p, type, observability, ninterval, pIncomplete = 1){
   #parameters
   time_grid <- seq(0, 1, length.out = p)
   sigmaPeriodic <- Cov_Periodic(time_grid, time_grid, sigma = 3, p = 1 , l = 0.5)
@@ -35,7 +36,27 @@ gaussian_PoFD <- function(n, p, type, observability, ninterval){
   colnames(data) <- as.character(c(1:n))
   rownames(data) <- round(time_grid, digits=5)
 
-  podata <- switch(type, "sparse" = randomPointsObserved(data, observability) , "common" = extremesCensoring(data, observability), "interval" = nObservedAtRandom(data, observability, ninterval))
+  if(pIncomplete == 1){
+    podata <- switch(type, "sparse" = randomPointsObserved(data, observability) ,
+                     "common" = extremesCensoring(data, observability),
+                     "interval" = nObservedAtRandom(data, observability, ninterval))
+    rownames(podata) <- round(time_grid, digits = 5)
+
+  }else{
+    whichToCensor <- colnames(data)[sample(1:n, size = round(n*pIncomplete), replace = FALSE)]
+
+    podata <- switch(type, "sparse" = randomPointsObserved(data[,whichToCensor], observability) ,
+                     "common" = extremesCensoring(data[,whichToCensor], observability),
+                     "interval" = nObservedAtRandom(data[,whichToCensor], observability, ninterval))
+
+    colnames(podata) <- whichToCensor
+    dataCensoredMatrix <- cbind(data[,colnames(data)[!colnames(data) %in% whichToCensor]], podata)
+
+    podata <- dataCensoredMatrix[,colnames(data)]
+    rownames(podata) <- round(time_grid, digits = 5)
+
+  }
+
 
   return(list(fd = data , pofd = podata))
 }
