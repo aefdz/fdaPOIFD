@@ -1,13 +1,13 @@
 Package: fdaPOIFD
 Type: Package
 Title: Partially Observed Integrated Functional Depth
-Version: 1.0.0
+Version: 1.0.2
 Authors@R: c(person("Antonio", "Elías", email = "antonioefz91@gmail.com", role = c("aut", "cre")),
             person("Raúl", "Jiménez", email = "", role = c("ctb")),
             person("Anna M.", "Paganoni", email = "", role = c("ctb")),
             person("Laura M.", "Sangalli", email = "", role = c("ctb")))
 Maintainer: Antonio Elías <antonioefz91@gmail.com>
-Description: Integrated Depths for Partially Observed Functional Data (PoFD). Applications to visualization, outlier detection and classification. Software companion for Elías, Antonio, Jiménez, Raúl, Paganoni, Anna M. and Sangalli, Laura M., (2020), "Integrated Depth for Partially Observed Functional Data".
+Description: Integrated Depths for Partially Observed Functional Data (POFD). Applications to visualization, outlier detection and classification. Software companion for Elías, Antonio, Jiménez, Raúl, Paganoni, Anna M. and Sangalli, Laura M., (2020), "Integrated Depth for Partially Observed Functional Data".
 License: GPL-3
 Encoding: UTF-8
 LazyData: true

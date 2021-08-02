@@ -9,7 +9,7 @@
 #'
 #' @examples
 #' data(exampleData)
-#' plot_PoFD(exampleData$PoFDextremes)
+#' plotPOFD(exampleData$PoFDextremes)
 #'
 #' @import ggplot2
 #' @import tibble
@@ -19,7 +19,7 @@
 #'
 #' @export
 #'
-plot_PoFD <- function(data){
+plotPOFD <- function(data){
 
   N <- dim(data)[2]
   P <- dim(data)[1]

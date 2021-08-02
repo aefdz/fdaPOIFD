@@ -13,7 +13,8 @@
 #' or the column position.
 #'
 #' @examples
-#' data <- gaussian_PoFD(n=100, p=200, type="sparse", observability=0.5)$pofd
+#' load(exampleData)
+#' data <- exampleData$PoFDintervals
 #' poifd <- POIFD(data,  type = c("MBD"))
 #'
 #' @export

@@ -14,12 +14,12 @@
 #'
 #' @examples
 #' data(exampleData)
-#' outliergram_PoFD(exampleData$PoFDextremes_outliers, fshape = 1.5, p1 = 1, p2 = 0)
+#' outliergramPOFD(exampleData$PoFDextremes_outliers, fshape = 1.5, p1 = 1, p2 = 0)
 #'
 #' @references Arribas-Gil, A. and Romo, J. (2014).  Shape outlier detection and visualization for functional data:  the outliergram.Biostatistics, 15(4):603–619.
 #'
 #' @export
-outliergram_PoFD <- function(data, fshape = 1.5, p1 = 1, p2 = 0)
+outliergramPOFD <- function(data, fshape = 1.5, p1 = 1, p2 = 0)
 {
   N <- dim(data)[2]
   P <- dim(data)[1]

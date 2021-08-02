@@ -17,7 +17,7 @@
 #'
 #' @examples
 #' data(exampleData)
-#' boxplot_PoFD(exampleData$PoFDextremes_outliers, centralRegion = 0.5, fmag = 1.5, fdom = 0)
+#' boxplotPOFD(exampleData$PoFDextremes_outliers, centralRegion = 0.5, fmag = 1.5, fdom = 0)
 #'
 #' @references Sun, Y. and Genton, M. G. (2011). Functional boxplots. Journal of Computational & Graphical Statistics, 20(2):316–334.
 #' @import ggplot2
@@ -26,7 +26,7 @@
 #' @importFrom stats ecdf fivenum median quantile
 #'
 #' @export
-boxplot_PoFD <- function(data, centralRegion = 0.5, fmag = 1.5, fdom = 0)
+boxplotPOFD <- function(data, centralRegion = 0.5, fmag = 1.5, fdom = 0)
 {
   N <- dim(data)[2]
   P <- dim(data)[1]

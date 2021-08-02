@@ -39,17 +39,9 @@ library(POIFD)
 ## Test usage
 
 ```{r, fig.align="center"}
-#Generate data
-sparse_gaussian <- gaussian_PoFD(n=10, p=200, type="sparse", observability=0.5)
-common_gaussian <- gaussian_PoFD(n=10, p=200, type="common", observability=0.5)
-interval_gaussian <- gaussian_PoFD(n=10, p=200, type="interval", ninterval=3, observability=0.5)
-
 #plot the data sets
-plot_sparse <- plot_PoFD(sparse_gaussian$pofd)
-plot_interval <- plot_PoFD(interval_gaussian$pofd)
-plot_common <- plot_PoFD(common_gaussian$pofd)
-
-plot_sparse 
+plot_interval <- plotPOFD(exampleData$PoFDintervals)
+plot_common <- plotPOFD(exampleData$PoFDextremes)
 
 plot_interval
 
@@ -74,7 +66,7 @@ mbd <- POIFD(common_gaussian$pofd, type = "MBD")
 ```{r, fig.align="center"}
 data(exampleData)
 
-fboxplot <- boxplot_PoFD(exampleData$PoFDextremes_outliers, centralRegion = 0.5, fmag = 1.5, fdom = 1)
+fboxplot <- boxplotPOFD(exampleData$PoFDextremes_outliers, centralRegion = 0.5, fmag = 1.5, fdom = 1)
 
 fboxplot$magnitude
 fboxplot$domain
@@ -88,7 +80,7 @@ fboxplot$fboxplot
 ### Functional Outliergram and Shape Outliers
 
 ```{r , fig.align="center"}
-outliergram <- outliergram_PoFD(exampleData$PoFDextremes_outliers)
+outliergram <- outliergramPOFD(exampleData$PoFDextremes_outliers)
 
 outliergram$shape
 
