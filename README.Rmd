@@ -9,7 +9,7 @@ output:
 
 ```{r setup, include=FALSE, message = FALSE, warning = FALSE, fig.align = 'center'}
 knitr::opts_chunk$set(echo = TRUE)
-library(POIFD)
+library(fdaPOIFD)
 ```
 
 POIFD
@@ -30,10 +30,10 @@ It implements the proposed depth measures, functional boxplot and functional out
 
 ```{r, eval = FALSE}
 #install the package
-devtools::install_github("aefdz/POIFD")
+devtools::install_github("aefdz/fdaPOIFD")
 
 #load the package
-library(POIFD)
+library(fdaPOIFD)
 ```
 
 ## Test usage
