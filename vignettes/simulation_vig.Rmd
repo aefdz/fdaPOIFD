@@ -48,10 +48,10 @@ time_grid <- seq(0, 1, length.out = p)
 sigmaPeriodic <- Cov_Periodic(time_grid, time_grid, sigma = 3, p = 1 , l = 0.5)
 sigmaExpo <- Cov_exponential(time_grid, time_grid, alpha = 0.5, beta = 5)
   
-#provides the random mean
+# Generate the random mean
 centerline <- MASS::mvrnorm(1, rep(0, p), sigmaPeriodic)
 
-#provides the random sample
+# Generate the random sample
 dataY <- FastGP::rcpp_rmvnorm(n, sigmaExpo, centerline)
 data <- t(dataY)
 colnames(data) <- as.character(c(1:n))
