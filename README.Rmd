@@ -52,7 +52,9 @@ plot_common
 ### Computing depths
 
 ```{r}
-mbd <- POIFD(common_gaussian$pofd, type = "MBD")
+data("exampleData")
+
+mbd <- POIFD(exampleData$PoFDintervals, type = "MBD")
 
 (median <- mbd[1])
 ```
