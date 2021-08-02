@@ -24,7 +24,7 @@ or the column position.
 Compute the depth measures of a partially observed functional data set evaluated in a common grid.
 }
 \examples{
-load(exampleData)
+data(exampleData)
 data <- exampleData$PoFDintervals
 poifd <- POIFD(data,  type = c("MBD"))
 

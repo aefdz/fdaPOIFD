@@ -23,7 +23,9 @@ Generates samples of sparse functions. See Elías et al (2020).
 }
 \examples{
 
-data <- sapply(1:100, function(x) runif(1)*sin(seq(0, 2*pi, length.out = 200)) + runif(1)*cos(seq(0, 2*pi, length.out = 200)))
+data <- sapply(1:100, function(x) runif(1)*sin(seq(0, 2*pi, length.out = 200)) +
+runif(1)*cos(seq(0, 2*pi, length.out = 200)))
+
 data_pofd <- sparsePOFD(data, observability = 0.5, pIncomplete = 1)
 
 }

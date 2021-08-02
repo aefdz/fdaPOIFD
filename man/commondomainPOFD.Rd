@@ -23,7 +23,9 @@ Generates samples of functions observed in a common domain in the center part of
 }
 \examples{
 
-data <- sapply(1:100, function(x) runif(1)*sin(seq(0, 2*pi, length.out = 200)) + runif(1)*cos(seq(0, 2*pi, length.out = 200)))
+data <- sapply(1:100, function(x) runif(1)*sin(seq(0, 2*pi, length.out = 200)) +
+runif(1)*cos(seq(0, 2*pi, length.out = 200)))
+
 data_pofd <- commondomainPOFD(data, observability = 0.5, pIncomplete = 1)
 
 }

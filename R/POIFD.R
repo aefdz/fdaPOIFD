@@ -13,7 +13,7 @@
 #' or the column position.
 #'
 #' @examples
-#' load(exampleData)
+#' data(exampleData)
 #' data <- exampleData$PoFDintervals
 #' poifd <- POIFD(data,  type = c("MBD"))
 #'

@@ -21,7 +21,7 @@ with outliers and without outliers.
 }
 \examples{
 data(exampleData)
-plot_PoFD(exampleData$PoFDintervals)
+plotPOFD(exampleData$PoFDintervals)
 
 }
 \references{

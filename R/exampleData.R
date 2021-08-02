@@ -14,6 +14,6 @@
 #'
 #' @examples
 #' data(exampleData)
-#' plot_PoFD(exampleData$PoFDintervals)
+#' plotPOFD(exampleData$PoFDintervals)
 #'
 "exampleData"

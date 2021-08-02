@@ -14,11 +14,18 @@
 #' @references Elías, Antonio, Jiménez, Raúl, Paganoni, Anna M. and Sangalli, Laura M. (2020). Integrated Depths for Partially Observed Functional Data.
 #' @examples
 #'
-#' data <- sapply(1:100, function(x) runif(1)*sin(seq(0, 2*pi, length.out = 200)) + runif(1)*cos(seq(0, 2*pi, length.out = 200)))
+#' data <- sapply(1:100, function(x) runif(1)*sin(seq(0, 2*pi, length.out = 200)) +
+#' runif(1)*cos(seq(0, 2*pi, length.out = 200)))
+#'
 #' data_pofd <- intervalPOFD(data, observability = 0.5, ninterval = 2, pIncomplete = 1)
 #'
 #' @export
 intervalPOFD <- function(data, observability = NULL, ninterval = NULL, pIncomplete = NULL){
+
+  P <- dim(data)[1]
+  N <- dim(data)[2]
+
+  time_grid <- seq(0, 1, length.out = P)
 
   if(pIncomplete == 1){
     podata <- nObservedAtRandom(data, observability, ninterval)
@@ -26,7 +33,7 @@ intervalPOFD <- function(data, observability = NULL, ninterval = NULL, pIncomple
     rownames(podata) <- round(time_grid, digits = 5)
 
   }else{
-    whichToCensor <- colnames(data)[sample(1:n, size = round(n*pIncomplete), replace = FALSE)]
+    whichToCensor <- colnames(data)[sample(1:N, size = round(N*pIncomplete), replace = FALSE)]
 
     podata <- nObservedAtRandom(data[,whichToCensor], observability, ninterval)
 
