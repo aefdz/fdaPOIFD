@@ -1,0 +1,10 @@
+citHeader("To cite fdaPOIFD in publications use:")
+
+bibentry(
+  bibtype    = "Article",
+  title    = "Integrated Depths for Partially Observed Functional Data",
+  author   = "Elías, A., Jiménez, R. Paganoni, A. M. and Sangalli, Laura M.",
+  journal  = "Journal of Computational and Graphical Statistics",
+  year     = "2022",
+  doi = "https://doi.org/10.1080/10618600.2022.2070171"
+)
