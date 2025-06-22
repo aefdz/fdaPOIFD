@@ -16,14 +16,13 @@
 #' @return a list with the functional boxplot for PoDF the magnitude outliers and the domain outliers.
 #'
 #' @examples
-#' data(exampleData)
 #' boxplotPOFD(exampleData$PoFDextremes_outliers, centralRegion = 0.5, fmag = 1.5, fdom = 0)
 #'
 #' @references Sun, Y. and Genton, M. G. (2011). Functional boxplots. Journal of Computational & Graphical Statistics, 20(2):316–334.
+#'
 #' @import ggplot2
 #' @importFrom magrittr "%>%"
 #' @importFrom reshape2 melt
-#' @importFrom stats ecdf fivenum median quantile
 #'
 #' @export
 boxplotPOFD <- function(data, centralRegion = 0.5, fmag = 1.5, fdom = 0)
@@ -101,16 +100,16 @@ boxplotPOFD <- function(data, centralRegion = 0.5, fmag = 1.5, fdom = 0)
     wcol = rep(w[2:P], each = 4)
   )
 
-  ggplot2::ggplot() +
-    ggplot2::geom_polygon(data = dataBand, aes(x = .data$x, y = .data$y, group = .data$id, fill = .data$wcol, color = .data$wcol)) +
-    ggplot2::geom_line(data = fdata[fdata$id == median,], aes(x = .data$x, y = .data$y), color = 'yellow', cex = 0.75) +
-    ggplot2::geom_line(data = dataWinkler, aes(x = .data$x, y = .data$y, group = .data$id, color = .data$wcol), cex = 1) +
-    ggplot2::geom_segment(data = dataWinklerBars, aes(x = .data$x1, y = .data$y1, xend = .data$x2, yend = .data$y2, color =.data$colBar), size = 0.75) +
-    ggplot2::geom_line(data = fdataMag, aes(x = .data$x, y = .data$y, group = .data$id), color='blue', cex = 0.75)+
-    ggplot2::geom_line(data = fdataDom, aes(x = .data$x, y = .data$y, group = .data$id), color='red', linetype = "dashed", cex = 0.75)+
-    ggplot2::scale_fill_gradient(low = "white", high = "black", limits=c(0, 1) , aesthetics = c('fill', "color")) +
-    ggplot2::labs(x = "", y ="")+
-    ggplot2::theme(legend.position = "none",
+  ggplot() +
+    geom_polygon(data = dataBand, aes(x = .data$x, y = .data$y, group = .data$id, fill = .data$wcol, color = .data$wcol)) +
+    geom_line(data = fdata[fdata$id == median,], aes(x = .data$x, y = .data$y), color = 'yellow', cex = 0.75) +
+    geom_line(data = dataWinkler, aes(x = .data$x, y = .data$y, group = .data$id, color = .data$wcol), cex = 1) +
+    geom_segment(data = dataWinklerBars, aes(x = .data$x1, y = .data$y1, xend = .data$x2, yend = .data$y2, color =.data$colBar), size = 0.75) +
+    geom_line(data = fdataMag, aes(x = .data$x, y = .data$y, group = .data$id), color='blue', cex = 0.75)+
+    geom_line(data = fdataDom, aes(x = .data$x, y = .data$y, group = .data$id), color='red', linetype = "dashed", cex = 0.75)+
+    scale_fill_gradient(low = "white", high = "black", limits=c(0, 1) , aesthetics = c('fill', "color")) +
+    labs(x = "", y ="")+
+    theme(legend.position = "none",
           legend.key.size = unit(0.75, "cm"),
           legend.title = element_blank(),
           panel.background = element_blank(),

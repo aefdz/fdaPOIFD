@@ -11,9 +11,9 @@
 #' @import ggplot2
 #' @importFrom magrittr "%>%"
 #' @importFrom reshape2 melt
+#' @importFrom stats fivenum quantile
 #'
 #' @examples
-#' data(exampleData)
 #' outliergramPOFD(exampleData$PoFDextremes_outliers, fshape = 1.5, p1 = 1, p2 = 0)
 #'
 #' @references Arribas-Gil, A. and Romo, J. (2014).  Shape outlier detection and visualization for functional data:  the outliergram.Biostatistics, 15(4):603–619.
@@ -27,7 +27,7 @@ outliergramPOFD <- function(data, fshape = 1.5, p1 = 1, p2 = 0)
   if(is.null(rownames(data))){rownames(data) <- x <- c(1:P)}else{x <- as.numeric(rownames(data))}
   if(is.null(colnames(data))){colnames(data) <- ids <- c(1:N)}else{ids <- colnames(data)}
 
-  mbd.ordered <- POIFD(data, type = "MBD")
+  mbd.ordered <- sort(POIFD(data, type = "MBD"))
   mbd.ids <- mbd.ordered[ids]
   epi.ids <- POIFD(data, type = "MHRD")$mepi[ids]
 
@@ -108,15 +108,15 @@ outliergramPOFD <- function(data, fshape = 1.5, p1 = 1, p2 = 0)
   )
 
   outgramOutliersPartially <- outliergramDataOutliersPartially %>%
-    ggplot2::ggplot(aes(x = .data$mepi, y = .data$mbd, group = .data$id, col = .data$group)) +
-    ggplot2::geom_point(size = 1.5, aes(x = .data$mepi, y = .data$mbd, group = .data$id, color = .data$group)) +
-    ggplot2::geom_line(data = outgramParabolaOutliersPartially, aes(.data$x, .data$y), color = "black")+
-    ggplot2::geom_line(data = outgramParabolaEnhancedOutliersPartially, aes(.data$x, .data$y), color = "black", linetype = 2)+
-    ggplot2::xlab("Partially Observed MEI") +
-    ggplot2::ylab("Partially Observed MBD") +
-    ggplot2::xlim(0,1)+
-    ggplot2::ylim(0,0.5)+
-    ggplot2::theme(legend.position = "bottom",
+    ggplot(aes(x = .data$mepi, y = .data$mbd, group = .data$id, col = .data$group)) +
+    geom_point(size = 1.5, aes(x = .data$mepi, y = .data$mbd, group = .data$id, color = .data$group)) +
+    geom_line(data = outgramParabolaOutliersPartially, aes(.data$x, .data$y), color = "black")+
+    geom_line(data = outgramParabolaEnhancedOutliersPartially, aes(.data$x, .data$y), color = "black", linetype = 2)+
+    xlab("Partially Observed MEI") +
+    ylab("Partially Observed MBD") +
+    xlim(0,1)+
+    ylim(0,0.5)+
+    theme(legend.position = "bottom",
           legend.key = element_rect(colour = NA, fill = NA),
           legend.key.size = unit(0.75, "cm"),
           legend.title = element_blank(),

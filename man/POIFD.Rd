@@ -4,28 +4,45 @@
 \alias{POIFD}
 \title{Integrated Depth for Partially Observed Functional Data}
 \usage{
-POIFD(data, type = c("MBD", "FMD", "MHRD"), phi)
+POIFD(data, type = c("HD", "FMD", "MBD", "MHRD"), phi, t = NULL)
 }
 \arguments{
-\item{data}{matrix p by n, being n the number of functions and p the number of grid points.
-Rownames are the dense grid x and colnames the identifier of each functional data.}
+\item{data}{If functions are observed in a partially observed common grid `data` is a matrix `p` by `n`, being `n` the number of functions and `p` the number of grid points.
+The row names of the matrix should be the common evaluation grid and the column names the identifiers of each functional data.
+If functions do not have a common grid, `data`must be a list of length `n` where each element contains the values and evaluation points of each function.
+I.e. each list element must contain two vectors `x`, including the evaluation points, and `y`, the evaluated function values.
+For functions without a common grid, the function \code{"POIFD"}) first apply the procedure to estimate the observation domain proposed in Elías, A., Nagy, S. (2025), TEST.}
 
-\item{type}{chosen depth measure. Fraiman and Muniz depth (\code{"FMD"}), Modified band depth (\code{"MBD"})
+\item{type}{chosen depth measure. Halfspace depth (\code{"HS"}), Fraiman and Muniz depth (\code{"FMD"}), Modified band depth (\code{"MBD"})
 or Modified Half Region Depth and Modified Epigraph/Hipograph Index \code{"MHRD"})}
 
-\item{phi}{phi function of weights for the POIFD. The default value is as in the paper, i.e. the proportion of observed functions
-at each time point.}
+\item{phi}{phi function of weights for the POIFD. The default value is as in [1]: the proportion of observed functions at each time point.}
+
+\item{t}{If functions do not have a common grid, `t` represents the final common grid of evaluation points to apply the
+procedure to estimate the observation domain proposed in [2].}
 }
 \value{
-Ordered vector of depths from the deepest to outward. The names are the functions names (if provided)
-or the column position.
+Ordered vector of depths. The names are the functions names (if provided) or the column position.
 }
 \description{
-Compute the depth measures of a partially observed functional data set evaluated in a common grid.
+Compute the depth measure of a partially observed functional data set proposed in [1].
+If the functions are not observed in a common partially observed domain, the code first
+estimates the observation domain using the proposal in [2].
+}
+\details{
+[1] Elías, A., Jiménez, R., Paganoni, A. M., & Sangalli, L. M. (2023).
+Integrated depths for partially observed functional data. Journal of
+Computational and Graphical Statistics, 32(2), 341-352.
+
+[2] Elías, A., Nagy, S. (2025).
+Statistical Properties of Partially Observed Integrated Funcional Depths.
+TEST, 34, 125-150.
 }
 \examples{
-data(exampleData)
 data <- exampleData$PoFDintervals
-poifd <- POIFD(data,  type = c("MBD"))
+poifd <- POIFD(data,  type = c("FMD"))
+
+data <- exampleData$PoFDintervals_list
+poifd <- POIFD(data,  type = c("FMD"), t = seq(0, 1, length.out = 100))
 
 }

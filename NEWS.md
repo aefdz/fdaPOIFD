@@ -1,3 +1,12 @@
+# fdaPOIFD 2.0.0
+* Includes depth-based reconstruction of partially observed functional data. 
+* Includes faster implementation of the partially observed functional depths.
+* Includes the computation of depths for partially observed data over non common domains.
+* Updates the documentation with new references and contributors
+* Update example data
+* Remove unused vignette
+* Update README
+
 # fdaPOIFD 1.0.3
 * Update citation
 

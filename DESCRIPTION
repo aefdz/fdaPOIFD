@@ -1,29 +1,29 @@
 Package: fdaPOIFD
 Type: Package
 Title: Partially Observed Integrated Functional Depth
-Version: 1.0.2
+Version: 2.0.0
 Authors@R: c(person("Antonio", "Elías", email = "antonioefz91@gmail.com", role = c("aut", "cre")),
             person("Raúl", "Jiménez", email = "", role = c("ctb")),
             person("Anna M.", "Paganoni", email = "", role = c("ctb")),
-            person("Laura M.", "Sangalli", email = "", role = c("ctb")))
+            person("Laura M.", "Sangalli", email = "", role = c("ctb")),
+            person("Stanislav", "Nagy", email = "", role = c("ctb")),
+            person("Maximiliam", "Ofner", email = "", role = c("ctb")))
 Maintainer: Antonio Elías <antonioefz91@gmail.com>
-Description: Applications to visualization, outlier detection and classification. Software companion for Elías, Antonio, Jiménez, Raúl, Paganoni, Anna M. and Sangalli, Laura M., (2022), "Integrated Depth for Partially Observed Functional Data". Journal of Computational and Graphical Statistics. \url{https://doi.org/10.1080/10618600.2022.2070171}.
+Description: Integrated Functional Depth for Partially Observed Functional Data and applications to visualization, outlier detection and classification. It implements the methods proposed in: Elías, A., Jiménez, R., Paganoni, A. M. and Sangalli, L. M., (2023), "Integrated Depth for Partially Observed Functional Data", Journal of Computational and Graphical Statistics, \url{https://doi.org/10.1080/10618600.2022.2070171}. Elías, A., Jiménez, R., & Shang, H. L. (2023), "Depth-based reconstruction method for incomplete functional data", Computational Statistics, \url{https://doi.org/10.1007/s00180-022-01282-9}. Elías, A., Nagy, S. (2024), "Statistical properties of partially observed integrated functional depths", TEST, \url{https://doi.org/10.1007/s11749-024-00954-6}.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.1
+RoxygenNote: 7.3.2
 Depends: R (>= 3.5.0)
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
 Imports:
+    stats,
     ggplot2,
     tibble,
     magrittr,
     reshape2,
     patchwork,
-    MASS,
-    fdapace,
-    FastGP,
-    stats
+    igraph
 URL: https://github.com/aefdz/fdaPOIFD
-BugReports: https://github.com/aefdz/fdaPOIFD
+BugReports: https://github.com/aefdz/fdaPOIFD/issues
