@@ -1,8 +1,8 @@
 ---
-title: "Illustration of the simulations"
+title: "Illustration of the simulations in Elias et al. (2023)"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Illustration of the simulations}
+  %\VignetteIndexEntry{Illustration of the simulations in Elias et al. (2023)}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 ---
