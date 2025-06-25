@@ -22,7 +22,7 @@
 #'
 #' @examples
 #' data <- exampleData$PoFDintervals
-#' recons_data <- depthbasedreconstructionPOFD(data, id_recons = 1:10)
+#' recons_data <- depthbasedreconstructionPOFD(data, id_recons = 1:2)
 #'
 #' @export
 
