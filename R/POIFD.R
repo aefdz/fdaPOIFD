@@ -64,6 +64,7 @@ POIFD <- function(data, type = c("HD", "FMD", "MBD", "MHRD"), phi, t = NULL){
     data <- t(data[,colMeans(is.na(data)) != 1])
   }
 
+  if(!missing(phi)){phi <- phi[rowMeans(is.na(data)) != 1]}
 
   depth <- switch(type,
                   HD = POIFD_HD(t(data), phi),
