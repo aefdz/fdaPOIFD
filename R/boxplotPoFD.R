@@ -5,6 +5,7 @@
 #' in a region with less than \code{fdom} proportion of the central region.
 #'
 #' @param data matrix p by n, being n the number of functions and p the number of grid points.
+#' @param depth depth used to build the functional boxplot. Default is MBD, see POIFD function for other definitions.
 #' @param centralRegion number between 0 and 1 determining the proportion of the deepest functions that builds the central region.
 #' @param fmag factor to enhance the functional central region and
 #'  determine the functional whiskers. Default is equal to 1.5. The whiskers provide the rule to unmask magnitude outliers.
@@ -13,6 +14,7 @@
 #' on the domain where any of the functions building the central region are observed.
 #' A value equals to 1 determine as domain outlier any magnitude outlier out of the region where the central region
 #' is completely observed.
+#' @param plot if the plot is shown or not.
 #' @return a list with the functional boxplot for PoDF the magnitude outliers and the domain outliers.
 #'
 #' @examples
@@ -25,7 +27,7 @@
 #' @importFrom reshape2 melt
 #'
 #' @export
-boxplotPOFD <- function(data, centralRegion = 0.5, fmag = 1.5, fdom = 0)
+boxplotPOFD <- function(data, depth, centralRegion = 0.5, fmag = 1.5, fdom = 0, plot = TRUE)
 {
   N <- dim(data)[2]
   P <- dim(data)[1]
@@ -34,7 +36,9 @@ boxplotPOFD <- function(data, centralRegion = 0.5, fmag = 1.5, fdom = 0)
   if(is.null(rownames(data))){rownames(data) <- x <- c(1:P)}else{x <- as.numeric(rownames(data))}
   if(is.null(colnames(data))){colnames(data) <- ids <- c(1:N)}else{ids <- colnames(data)}
 
-  mbd.ordered <- POIFD(data, type = "MBD")
+  if(missing(depth)){depth <- "MBD"}
+
+  mbd.ordered <- sort(POIFD(data, type = depth), decreasing = TRUE)
   mbd.ids <- mbd.ordered[ids]
   median <- names(mbd.ordered)[1]
 
@@ -52,16 +56,17 @@ boxplotPOFD <- function(data, centralRegion = 0.5, fmag = 1.5, fdom = 0)
   #mag.out includes all the outliers dom.out only the ones determine by a region poorly observed
 
   if(fdom < 1){
-  dom.out <- which(colSums(data <= lowerWhisker & propCR <= fdom |
-                           data >= upperWhisker & propCR <= fdom, na.rm = TRUE) != 0)
+  dom.out <- which(colSums(data < lowerWhisker & propCR <= fdom |
+                           data > upperWhisker & propCR <= fdom, na.rm = TRUE) != 0)
   }else{
-  dom.out <- which(colSums(data <= lowerWhisker & propCR < fdom |
-                               data >= upperWhisker & propCR < fdom, na.rm = TRUE) != 0)
+  dom.out <- which(colSums(data < lowerWhisker & propCR < fdom |
+                               data > upperWhisker & propCR < fdom, na.rm = TRUE) != 0)
   }
 
-  mag.out <- which(colSums( data <= lowerWhisker | data >= upperWhisker , na.rm = TRUE) != 0)
+  mag.out <- which(colSums( data < lowerWhisker | data > upperWhisker , na.rm = TRUE) != 0)
 
-  #plotting
+
+  if(plot){
   fdata <- data.frame(id = rep(ids, each = P),
                   x = rep(x, N),
                   y = c(data)
@@ -118,5 +123,15 @@ boxplotPOFD <- function(data, centralRegion = 0.5, fmag = 1.5, fdom = 0)
                                    size = rel(1))
     ) -> boxplotPartially
 
-  return(list(fboxplot = boxplotPartially, all.out = unique(c(mag.out, dom.out)), magnitude = mag.out, domain = dom.out))
+
+  return(list(fboxplot = boxplotPartially,
+              all.out = colnames(data)[unique(c(mag.out, dom.out))],
+              magnitude = colnames(data)[mag.out],
+              domain = colnames(data)[dom.out]))
+
+  }else{
+    return(list(all.out = colnames(data)[unique(c(mag.out, dom.out))],
+                magnitude = colnames(data)[mag.out],
+                domain = colnames(data)[dom.out]))
+  }
 }

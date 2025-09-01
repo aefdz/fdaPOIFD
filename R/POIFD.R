@@ -61,7 +61,7 @@ POIFD <- function(data, type = c("HD", "FMD", "MBD", "MHRD"), phi, t = NULL){
 
     data <- estimate_O_interpolate(data, t, rho = function(x) 1/sqrt(length(x)))
 
-    data <- data[,colMeans(is.na(data)) != 1]
+    data <- t(data[,colMeans(is.na(data)) != 1])
   }
 
 

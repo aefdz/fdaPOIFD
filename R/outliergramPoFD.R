@@ -6,6 +6,7 @@
 #' @param fshape inflation of the outliergram that determine the shape outlier rule.
 #' @param p1 parameter of the outliergram for resampling method. Default = 1.
 #' @param p2 parameter of the outliergram for resampling method. Default = 0.
+#' @param plot if the plot is shown or not.
 #' @return a list with the functional outliergram for PoDF and the shape outliers.
 #'
 #' @import ggplot2
@@ -19,7 +20,7 @@
 #' @references Arribas-Gil, A. and Romo, J. (2014).  Shape outlier detection and visualization for functional data:  the outliergram.Biostatistics, 15(4):603–619.
 #'
 #' @export
-outliergramPOFD <- function(data, fshape = 1.5, p1 = 1, p2 = 0)
+outliergramPOFD <- function(data, fshape = 1.5, p1 = 1, p2 = 0, plot = TRUE)
 {
   N <- dim(data)[2]
   P <- dim(data)[1]
@@ -91,6 +92,7 @@ outliergramPOFD <- function(data, fshape = 1.5, p1 = 1, p2 = 0)
 
   #plotting outliergram
 
+  if(plot){
   outgramParabolaOutliersPartially <- data.frame(id = rep(1, 100), x = seq(0,1,length.out = 100),  y = Ps)
   outgramParabolaEnhancedOutliersPartially <- data.frame(id = rep(1, 100), x = seq(0,1,length.out = 100), y = Ps - limit)
   outgramParabolaEnhancedOutliersPartially <- outgramParabolaEnhancedOutliersPartially[rowSums(outgramParabolaEnhancedOutliersPartially>0) ==3,]
@@ -125,7 +127,9 @@ outliergramPOFD <- function(data, fshape = 1.5, p1 = 1, p2 = 0)
           axis.line = element_line(colour = "black",
                                    size = rel(1))
     )
-
   return(list(outliergram = outgramOutliersPartially, shape = c(shape.out, shape.out.further)))
 
+  }else{
+    return(list(shape = c(shape.out, shape.out.further)))
+  }
 }
