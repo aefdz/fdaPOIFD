@@ -1,7 +1,7 @@
 Package: fdaPOIFD
 Type: Package
 Title: Partially Observed Integrated Functional Depth
-Version: 2.0.0
+Version: 2.0.1
 Authors@R: c(person("Antonio", "Elías", email = "antonioefz91@gmail.com", role = c("aut", "cre")),
             person("Raúl", "Jiménez", email = "", role = c("ctb")),
             person("Anna M.", "Paganoni", email = "", role = c("ctb")),

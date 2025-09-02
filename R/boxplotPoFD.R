@@ -18,7 +18,10 @@
 #' @return a list with the functional boxplot for PoDF the magnitude outliers and the domain outliers.
 #'
 #' @examples
-#' boxplotPOFD(exampleData$PoFDextremes_outliers, centralRegion = 0.5, fmag = 1.5, fdom = 0)
+#' boxplotPOFD(exampleData$PoFDextremes_outliers,
+#' depth = "MBD",
+#' centralRegion = 0.5,
+#' fmag = 1.5, fdom = 0)
 #'
 #' @references Sun, Y. and Genton, M. G. (2011). Functional boxplots. Journal of Computational & Graphical Statistics, 20(2):316–334.
 #'

@@ -4,7 +4,7 @@
 \alias{outliergramPOFD}
 \title{Outliergram for Partially Observed Functional Data}
 \usage{
-outliergramPOFD(data, fshape = 1.5, p1 = 1, p2 = 0)
+outliergramPOFD(data, fshape = 1.5, p1 = 1, p2 = 0, plot = TRUE)
 }
 \arguments{
 \item{data}{matrix p by n, being n the number of functions and p the number of grid points.}
@@ -14,6 +14,8 @@ outliergramPOFD(data, fshape = 1.5, p1 = 1, p2 = 0)
 \item{p1}{parameter of the outliergram for resampling method. Default = 1.}
 
 \item{p2}{parameter of the outliergram for resampling method. Default = 0.}
+
+\item{plot}{if the plot is shown or not.}
 }
 \value{
 a list with the functional outliergram for PoDF and the shape outliers.

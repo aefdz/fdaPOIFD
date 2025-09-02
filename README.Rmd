@@ -22,9 +22,9 @@ POIFD
 
 ## Overview
 
-Software companion for the paper “Integrated Depth for Partially Observed Functional Data” (Elías, Antonio, Jiménez, Raúl, Paganoni, Anna M. and Sangalli, Laura M., 2020). 
+Software to compute Integrated Depth for Partially Observed Functional Data and applications 
 
-It implements the proposed depth measures, functional boxplot and functional outliergram for partially observed functional data. 
+It implements the proposed depth measures, functional boxplot, functional outliergram for partially observed functional data and reconstruction methods.
 
 ## Installation 
 

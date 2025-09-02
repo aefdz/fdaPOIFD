@@ -1,3 +1,7 @@
+# fdaPOIFD 2.0.1
+*Fix some issues with the functional boxplot
+*Fix some issues with the position of data for the sparse implementation
+
 # fdaPOIFD 2.0.0
 * Includes depth-based reconstruction of partially observed functional data. 
 * Includes faster implementation of the partially observed functional depths.

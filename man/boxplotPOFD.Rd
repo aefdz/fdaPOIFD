@@ -4,10 +4,19 @@
 \alias{boxplotPOFD}
 \title{Functional Boxplot for Partially Observed Functional Data}
 \usage{
-boxplotPOFD(data, centralRegion = 0.5, fmag = 1.5, fdom = 0)
+boxplotPOFD(
+  data,
+  depth,
+  centralRegion = 0.5,
+  fmag = 1.5,
+  fdom = 0,
+  plot = TRUE
+)
 }
 \arguments{
 \item{data}{matrix p by n, being n the number of functions and p the number of grid points.}
+
+\item{depth}{depth used to build the functional boxplot. Default is MBD, see POIFD function for other definitions.}
 
 \item{centralRegion}{number between 0 and 1 determining the proportion of the deepest functions that builds the central region.}
 
@@ -19,6 +28,8 @@ as a domain outlier also. A value equals to 0 means that domain outliers are tho
 on the domain where any of the functions building the central region are observed.
 A value equals to 1 determine as domain outlier any magnitude outlier out of the region where the central region
 is completely observed.}
+
+\item{plot}{if the plot is shown or not.}
 }
 \value{
 a list with the functional boxplot for PoDF the magnitude outliers and the domain outliers.
@@ -29,7 +40,10 @@ Magnitude outliers in blue, a dotted red indicates that the outlier situation oc
 in a region with less than \code{fdom} proportion of the central region.
 }
 \examples{
-boxplotPOFD(exampleData$PoFDextremes_outliers, centralRegion = 0.5, fmag = 1.5, fdom = 0)
+boxplotPOFD(exampleData$PoFDextremes_outliers,
+depth = "MBD",
+centralRegion = 0.5,
+fmag = 1.5, fdom = 0)
 
 }
 \references{
